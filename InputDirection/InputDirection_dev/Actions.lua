@@ -233,6 +233,6 @@ Actions = {
 		{name = "heavy throw", value = 0x80000589},
 		{name = "picking up bowser", value = 0x00000390},
 		{name = "holding bowser", value = 0x00000391},
-		{name = "releasing bowser", value = 0x00000392}
-	}
+		{name = "releasing bowser", value = 0x00000392},
+	},
 }

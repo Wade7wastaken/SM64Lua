@@ -8,24 +8,24 @@
 
 PATH = debug.getinfo(1).source:sub(2):match("(.*\\)") .. "\\InputDirection_dev\\"
 
-dofile (PATH .. "Drawing.lua")
+dofile(PATH .. "Drawing.lua")
 Drawing.resizeScreen()
 
-dofile (PATH .. "Memory.lua")
-dofile (PATH .. "Settings.lua")
-dofile (PATH .. "Joypad.lua")
-dofile (PATH .. "Angles.lua")
-dofile (PATH .. "Engine.lua")
-dofile (PATH .. "Buttons.lua")
-dofile (PATH .. "Input.lua")
-dofile (PATH .. "Program.lua")
-dofile (PATH .. "MoreMaths.lua")
-dofile (PATH .. "Actions.lua")
-dofile (PATH .. "Swimming.lua")
+dofile(PATH .. "Memory.lua")
+dofile(PATH .. "Settings.lua")
+dofile(PATH .. "Joypad.lua")
+dofile(PATH .. "Angles.lua")
+dofile(PATH .. "Engine.lua")
+dofile(PATH .. "Buttons.lua")
+dofile(PATH .. "Input.lua")
+dofile(PATH .. "Program.lua")
+dofile(PATH .. "MoreMaths.lua")
+dofile(PATH .. "Actions.lua")
+dofile(PATH .. "Swimming.lua")
 
 Settings.Theme = Settings.Themes.Dark -- Settings.Themes.Dark for dark mode
-Settings.ShowEffectiveAngles = false -- show angles floored to the nearest multiple of 16
-Drawing.useImage = false -- place an image named background.png inside the folder where Drawing.lua is and set this to true for an image background
+Settings.ShowEffectiveAngles = false  -- show angles floored to the nearest multiple of 16
+Drawing.useImage = false              -- place an image named background.png inside the folder where Drawing.lua is and set this to true for an image background
 
 Program.initFrame()
 Memory.UpdatePrevPos()
@@ -51,12 +51,12 @@ function close()
 end
 
 emu.atinput(main)
-emu.atvi(drawing,false)
+emu.atvi(drawing, false)
 emu.atinterval(update, false)
 emu.atstop(close)
 if emu.atloadstate then
 	emu.atloadstate(drawing, false)
-	emu.atreset(Drawing.resizeScreen,false)
+	emu.atreset(Drawing.resizeScreen, false)
 else
 	print("update ur mupen")
 end

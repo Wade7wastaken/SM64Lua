@@ -1,7 +1,7 @@
 Settings = {
 	goalAngle = 0,
 	goalMag = 127,
-	ShowEffectiveAngles = false
+	ShowEffectiveAngles = false,
 }
 
 --[[
@@ -11,7 +11,8 @@ Numbers will always edit value fields, and arrow keys
 arrow keys will always change selected digits in value fields.
 For a list of valid keys (case-sensitive) see:
   https://docs.google.com/document/d/1SWd-oAFBKsGmwUs0qGiOrk3zfX9wYHhi3x5aKPQS_o0/edit#bookmark=id.jcojkq7g066s
-]]--
+]]
+--
 Settings.Hotkeys = {
 	["dist moved"] = {},
 	["ignore y"] = {},
@@ -28,22 +29,22 @@ Settings.Hotkeys = {
 	["match angle"] = {},
 	["match angle value"] = {},
 	["dyaw"] = {},
-	
+
 	["arcotan strain"] = {},
 	["reverse arcotan strain"] = {},
-	
+
 	["increment arcotan ratio"] = {},
 	["decrement arcotan ratio"] = {},
-	
+
 	["increment arcotan displacement"] = {},
 	["decrement arcotan displacement"] = {},
-	
+
 	["increment arcotan length"] = {},
 	["decrement arcotan length"] = {},
-	
+
 	["increment arcotan start frame"] = {},
 	["decrement arcotan start frame"] = {},
-	
+
 	["increment arcotan step"] = {},
 	["decrement arcotan step"] = {},
 
@@ -52,7 +53,7 @@ Settings.Hotkeys = {
 	["reset magnitude"] = {},
 	["high magnitude"] = {},
 
-	["swim"] = {}
+	["swim"] = {},
 }
 
 
@@ -71,8 +72,8 @@ Settings.Themes = {
 			Bottom = "#E8E8E8",
 			Pressed = {
 				Top = "#FF0000",
-				Bottom = "#EE0000"
-			}
+				Bottom = "#EE0000",
+			},
 		},
 		Joystick = {
 			Circle = "#FFFFFF",
@@ -82,16 +83,16 @@ Settings.Themes = {
 			Stick = "#0000FF",
 			Dot = "#FF0000", -- end of the joystick
 		},
-		InputField = { -- where you enter the facing angle or mag
+		InputField = {-- where you enter the facing angle or mag
 			--EditingText = "#000000", -- optional, defaults to Theme.Text
 			Editing = "#FFFF00",
 			Enabled = "#FFFFFF",
 			Disabled = "#AAAAAA",
 			OutsideOutline = "#000000", -- outermost
-			Outline = "#888888" -- inner (creates depth)
-		}
+			Outline = "#888888", -- inner (creates depth)
+		},
 	},
-	Dark = { -- Theme by ShadoXFM
+	Dark = {-- Theme by ShadoXFM
 		Text = "#FFFFFF",
 		Background = "#222222",
 		Button = {
@@ -102,8 +103,8 @@ Settings.Themes = {
 			Bottom = "#EDEDED",
 			Pressed = {
 				Top = "#FF0000",
-				Bottom = "#EE0000"
-			}
+				Bottom = "#EE0000",
+			},
 		},
 		Joystick = {
 			Circle = "#444444",
@@ -119,10 +120,10 @@ Settings.Themes = {
 			Enabled = "#666666",
 			Disabled = "#444444",
 			OutsideOutline = "#000000",
-			Outline = "#888888"
-		}
+			Outline = "#888888",
+		},
 	},
-	IcyBlue = { -- Theme by Manama
+	IcyBlue = {-- Theme by Manama
 		Text = "#000000",
 		Background = "#757a9c",
 		Button = {
@@ -132,8 +133,8 @@ Settings.Themes = {
 			Bottom = "#959cc2",
 			Pressed = {
 				Top = "#6984FF",
-				Bottom = "#576ED9"
-			}
+				Bottom = "#576ED9",
+			},
 		},
 		Joystick = {
 			Circle = "#888EB5",
@@ -148,10 +149,10 @@ Settings.Themes = {
 			Enabled = "#FFFFFF",
 			Disabled = "#FFFFFF",
 			OutsideOutline = "#000000",
-			Outline = "#888888"
-		}
+			Outline = "#888888",
+		},
 	},
-	CustomDark = { -- Theme by tjk
+	CustomDark = {-- Theme by tjk
 		Text = "#FFFFFF",
 		ReadWriteText = "#05DDE2",
 		Background = "#222222",
@@ -163,8 +164,8 @@ Settings.Themes = {
 			Bottom = "#EDEDED",
 			Pressed = {
 				Top = "#05DDE2",
-				Bottom = "#00D4D8"
-			}
+				Bottom = "#00D4D8",
+			},
 		},
 		Joystick = {
 			Circle = "#444444",
@@ -180,10 +181,10 @@ Settings.Themes = {
 			Enabled = "#666666",
 			Disabled = "#444444",
 			OutsideOutline = "#000000",
-			Outline = "#888888"
-		}
+			Outline = "#888888",
+		},
 	},
-	MidnightPurple = { -- Theme by tjk
+	MidnightPurple = {       -- Theme by tjk
 		Text = "#FFFFFF",
 		ReadWriteText = "#ed02e9", -- should be a bit brighter than Button.Pressed.Top
 		Background = "#361e35",
@@ -195,8 +196,8 @@ Settings.Themes = {
 			Bottom = "#9c869b",
 			Pressed = {
 				Top = "#a803a6",
-				Bottom = "#9e009b"
-			}
+				Bottom = "#9e009b",
+			},
 		},
 		Joystick = {
 			Circle = "#444444",
@@ -212,43 +213,43 @@ Settings.Themes = {
 			Enabled = "#666666",
 			Disabled = "#444444",
 			OutsideOutline = "#000000",
-			Outline = "#888888"
-		}
-	}
+			Outline = "#888888",
+		},
+	},
 }
 
 Settings.Theme = Settings.Themes.Light -- default
 
 Settings.Layout = {
 	Button = {
-		items = { -- spaces are used to adjust text placement
-			'Disabled  ',
-			'Match Yaw  ',
-			'Match Angle ',
-			'Reverse Angle',
-			'    Speedkick',
-			'Reset Mag ',
-			'Swim ',
-			'ignore Y',
-			'.99',
-			'Always ',
-			'Left',
-			'Right',
-			'Dyaw ',
-			'  get dist moved',
-			'AtanStrain',
-			'+',
-			'-',
-			'+',
-			'-',
-			'+',
-			'-',
-			'+',
-			'-',
-			'+',
-			'-',
-			'I',
-			'High Mag '
+		items = {-- spaces are used to adjust text placement
+			"Disabled  ",
+			"Match Yaw  ",
+			"Match Angle ",
+			"Reverse Angle",
+			"    Speedkick",
+			"Reset Mag ",
+			"Swim ",
+			"ignore Y",
+			".99",
+			"Always ",
+			"Left",
+			"Right",
+			"Dyaw ",
+			"  get dist moved",
+			"AtanStrain",
+			"+",
+			"-",
+			"+",
+			"-",
+			"+",
+			"-",
+			"+",
+			"-",
+			"+",
+			"-",
+			"I",
+			"High Mag ",
 		},
 		selectedItem = 1,
 
@@ -287,8 +288,8 @@ Settings.Layout = {
 			axis = {
 				x = 0,
 				y = 0,
-				z = 0
-			}
+				z = 0,
+			},
 		},
 		strain_button = {
 			always = false,
@@ -304,12 +305,12 @@ Settings.Layout = {
 			arctand = 0.0,
 			arctann = 10,
 			arctanexp = 0,
-			highmag = false
+			highmag = false,
 		},
-		swimming = false
+		swimming = false,
 	},
 	TextArea = {
-		items = {'Match Angle', 'Magnitude'},
+		items = {"Match Angle", "Magnitude"},
 		selectedItem = 0,
 		selectedChar = 1,
 		blinkTimer = 0,
@@ -317,6 +318,6 @@ Settings.Layout = {
 		showUnderscore = true,
 
 		MATCH_ANGLE = 1,
-		MAGNITUDE = 2
-	}
+		MAGNITUDE = 2,
+	},
 }

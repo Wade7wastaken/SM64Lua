@@ -1,22 +1,22 @@
 Memory = {
 	Mario = {
-	
+
 	},
 	Camera = {
-	
+
 	},
 	Version = 1,
-	
+
 	PreviousPos = {
 		X = 0,
-		Z = 0
-	}
+		Z = 0,
+	},
 }
 
 GameVersion = {
 	U = 1,
 	J = 2,
-	S = 3
+	S = 3,
 }
 
 function Memory.Refresh()
@@ -37,10 +37,10 @@ function Memory.Refresh()
 		Memory.Mario.Z = memory.readdword(0x00B3B1B4)
 		Memory.Mario.Action = memory.readdword(0x00B3B17C)
 		Memory.Mario.FSpeed = memory.readfloat(0x00B3B1C4)
-		Memory.Mario.HeldButtons = memory.readbyte(0x00B3AFF8)  -- A | B | Z | START | DUP | DDOWN | DLEFT | DRIGHT
+		Memory.Mario.HeldButtons = memory.readbyte(0x00B3AFF8) -- A | B | Z | START | DUP | DDOWN | DLEFT | DRIGHT
 		Memory.Mario.PressedButtons = memory.readbyte(0x00B3AFA3) -- U1 | U2 | L | R | CUP | CDOWN | CLEFT | CRIGHT
-		Memory.Mario.GfxAngle = memory.readword(memory.readdword(0x00B61158)-0x7F7FFF2A)
-		Memory.Mario.Animation = memory.readword(memory.readdword(0x00B61158)-0x7F7FFFC8)
+		Memory.Mario.GfxAngle = memory.readword(memory.readdword(0x00B61158) - 0x7F7FFF2A)
+		Memory.Mario.Animation = memory.readword(memory.readdword(0x00B61158) - 0x7F7FFFC8)
 		Memory.Mario.HatState = memory.readbyte(0x00B3B177)
 		Memory.Mario.GlobalTimer = memory.readdword(0x00B2D5D4)
 	elseif Memory.Version == GameVersion.J then
@@ -59,8 +59,8 @@ function Memory.Refresh()
 		Memory.Mario.FSpeed = memory.readfloat(0x00B39E54)
 		Memory.Mario.HeldButtons = memory.readbyte(0x00B39C88)
 		Memory.Mario.PressedButtons = memory.readbyte(0x00B39C33)
-		Memory.Mario.GfxAngle = memory.readword(memory.readdword(0x00B5FDE8)-0x7F7FFF2A)
-		Memory.Mario.Animation = memory.readword(memory.readdword(0x00B5FDE8)-0x7F7FFFC8)
+		Memory.Mario.GfxAngle = memory.readword(memory.readdword(0x00B5FDE8) - 0x7F7FFF2A)
+		Memory.Mario.Animation = memory.readword(memory.readdword(0x00B5FDE8) - 0x7F7FFFC8)
 		Memory.Mario.HatState = memory.readbyte(0x00B39E07)
 		Memory.Mario.GlobalTimer = memory.readdword(0x00B2C694)
 	else
@@ -79,8 +79,8 @@ function Memory.Refresh()
 		Memory.Mario.FSpeed = memory.readfloat(0x00B1DA14)
 		Memory.Mario.HeldButtons = memory.readbyte(0x00B1D5D0)
 		Memory.Mario.PressedButtons = memory.readbyte(0x00B1D57B)
-		Memory.Mario.GfxAngle = memory.readword(memory.readdword(0x00B43318)-0x7F7FFF2A)
-		Memory.Mario.Animation = memory.readword(memory.readdword(0x00B43318)-0x7F7FFFC8)
+		Memory.Mario.GfxAngle = memory.readword(memory.readdword(0x00B43318) - 0x7F7FFF2A)
+		Memory.Mario.Animation = memory.readword(memory.readdword(0x00B43318) - 0x7F7FFFC8)
 		Memory.Mario.HatState = memory.readbyte(0x00B1D9C7)
 		Memory.Mario.GlobalTimer = memory.readdword(0x00B0CD04)
 	end
@@ -88,10 +88,10 @@ end
 
 function Memory.CheckVersion()
 	-- Checks Addr 0x80322B24:
-		-- If U: 8F A6 00 1C 	LW a2 <- [sp+0x001C]		(OS func)
-		-- If J: 46 00 60 04	SQRT.s f00.s = sqrt(f12.s) 	(sqrtf func)
-	
-	if memory.readdword(0x00B22B24) == 1174429700 then -- J version
+	-- If U: 8F A6 00 1C 	LW a2 <- [sp+0x001C]		(OS func)
+	-- If J: 46 00 60 04	SQRT.s f00.s = sqrt(f12.s) 	(sqrtf func)
+
+	if memory.readdword(0x00B22B24) == 1174429700 then  -- J version
 		Memory.Version = GameVersion.J
 	elseif memory.readdword(0x00B22B24) == 2410020892 then -- U version
 		Memory.Version = GameVersion.U
@@ -99,7 +99,7 @@ function Memory.CheckVersion()
 		Memory.Version = GameVersion.S -- S version
 	end
 end
- 
+
 function Memory.UpdatePrevPos()
 	Memory.PreviousPos.X = Memory.Mario.X
 	Memory.PreviousPos.Z = Memory.Mario.Z

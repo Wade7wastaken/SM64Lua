@@ -12,9 +12,9 @@ function Swimming.swim(button)
 		or Memory.Mario.Action == WATER_ACTION_END
 		or Memory.Mario.Action == WATER_IDLE then
 		if button == "B" or button == "b" then
-			Joypad.set('B', 1)
+			Joypad.set("B", 1)
 		elseif button == "A" or button == "a" then
-			Joypad.set('A', 1)
+			Joypad.set("A", 1)
 		end
 	end
 end

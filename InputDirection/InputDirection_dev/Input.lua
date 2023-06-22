@@ -1,6 +1,6 @@
 Input = {
 	mousetab = {},
-	mousetab_prev = {}
+	mousetab_prev = {},
 }
 
 local ARROWS = {"left", "right", "up", "down"}
@@ -29,7 +29,7 @@ function Input.update()
 		Settings.Layout.TextArea.selectedItem = 0
 	end
 	local changes2 = Input.checkHotkeys()
-	if(changes2) then changes = changes2 end
+	if (changes2) then changes = changes2 end
 	Input.mousetab_prev = Input.mousetab
 	return changes
 end
@@ -39,7 +39,7 @@ function Input.checkHotkeys()
 	for i = 1, #Buttons do
 		if Buttons[i].enabled() and #Settings.Hotkeys[Buttons[i].name] > 0 then
 			local all_pressed = true
-			for i,key in ipairs(Settings.Hotkeys[Buttons[i].name]) do
+			for i, key in ipairs(Settings.Hotkeys[Buttons[i].name]) do
 				if not Input.mousetab[key] then
 					all_pressed = false
 				end
@@ -90,11 +90,11 @@ function Input.numberCheck(num)
 				end
 			end
 		end
-	end	
+	end
 	return changes
 end
 
-function Input.isInRange(xmouse,ymouse,x,y,xregion,yregion)
+function Input.isInRange(xmouse, ymouse, x, y, xregion, yregion)
 	if xmouse >= x and xmouse <= x + xregion then
 		if ymouse >= y and ymouse <= y + yregion then
 			return true
@@ -117,7 +117,7 @@ function Input.arrowCheck(key)
 end
 
 local function handleScroll(hwnd, msg_id, wparam, lparam)
-	if msg_id == 522 then -- WM_MOUSEWHEEL
+	if msg_id == 522 then                   -- WM_MOUSEWHEEL
 		-- high word (most significant 16 bits) is scroll rotation in multiples of WHEEL_DELTA (120)
 		local scroll = math.floor(wparam / 65536) --(wparam & 0xFFFF0000) >> 16
 		if scroll == 120 then

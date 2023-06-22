@@ -1,7 +1,7 @@
 Joypad = {
 	input = {
-	
-	}
+
+	},
 }
 
 function Joypad.init()

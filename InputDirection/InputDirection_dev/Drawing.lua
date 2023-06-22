@@ -2,8 +2,8 @@ Drawing = {
 	WIDTH_OFFSET = 222,
 	Screen = {
 		Height = 0,
-		Width = 0
-	}
+		Width = 0,
+	},
 }
 
 function Drawing.resizeScreen()
@@ -23,7 +23,7 @@ function Drawing.UnResizeScreen()
 end
 
 function Drawing.paint()
-	if(wgui.loadimage and Drawing.useImage == true) then
+	if (wgui.loadimage and Drawing.useImage == true) then
 		img = wgui.loadimage(PATH .. "background.png")
 		wgui.drawimage(img, Drawing.Screen.Width, 0, Drawing.Screen.Width + Drawing.WIDTH_OFFSET, Drawing.Screen.Height - 20)
 	else
@@ -36,12 +36,12 @@ function Drawing.paint()
 			Drawing.drawButton(Buttons[i].box[1], Buttons[i].box[2], Buttons[i].box[3], Buttons[i].box[4], Buttons[i].text, Buttons[i].pressed())
 		elseif Buttons[i].type == ButtonType.textArea then
 			local value = Buttons[i].value()
-			Drawing.drawTextArea(Buttons[i].box[1], Buttons[i].box[2], Buttons[i].box[3], Buttons[i].box[4], value and string.format("%0".. tostring(Buttons[i].inputSize) .."d", value) or string.rep('-', Buttons[i].inputSize), Buttons[i].enabled(), Buttons[i].editing())
+			Drawing.drawTextArea(Buttons[i].box[1], Buttons[i].box[2], Buttons[i].box[3], Buttons[i].box[4], value and string.format("%0" .. tostring(Buttons[i].inputSize) .. "d", value) or string.rep("-", Buttons[i].inputSize), Buttons[i].enabled(), Buttons[i].editing())
 		end
 	end
 	Drawing.drawAnalogStick(Drawing.Screen.Width + Drawing.WIDTH_OFFSET / 3, 210)
 	wgui.setcolor(Settings.Theme.Text)
-	wgui.setfont(10,"Arial","")
+	wgui.setfont(10, "Arial", "")
 	wgui.text(Drawing.Screen.Width + 149, 146, "Magnitude")
 	Memory.Refresh()
 	Drawing.drawAngles(Drawing.Screen.Width + 16, 280)
@@ -52,13 +52,13 @@ function Drawing.drawAngles(x, y)
 	if Settings.ShowEffectiveAngles then
 		wgui.text(x, y, "Yaw (Facing): " .. Engine.getEffectiveAngle(Memory.Mario.FacingYaw))
 		wgui.text(x, y + 15, "Yaw (Intended): " .. Engine.getEffectiveAngle(Memory.Mario.IntendedYaw))
-		wgui.text(x + 132, y, "O: " ..  (Engine.getEffectiveAngle(Memory.Mario.FacingYaw) + 32768) % 65536)--wgui.text(x, y + 30, "Opposite (Facing): " ..  (Engine.getEffectiveAngle(Memory.Mario.FacingYaw) + 32768) % 65536)
-		wgui.text(x + 132, y + 15, "O: " ..  (Engine.getEffectiveAngle(Memory.Mario.IntendedYaw) + 32768) % 65536)--wgui.text(x, y + 45, "Opposite (Intended): " ..  (Engine.getEffectiveAngle(Memory.Mario.IntendedYaw) + 32768) % 65536)
+		wgui.text(x + 132, y, "O: " .. (Engine.getEffectiveAngle(Memory.Mario.FacingYaw) + 32768) % 65536)  --wgui.text(x, y + 30, "Opposite (Facing): " ..  (Engine.getEffectiveAngle(Memory.Mario.FacingYaw) + 32768) % 65536)
+		wgui.text(x + 132, y + 15, "O: " .. (Engine.getEffectiveAngle(Memory.Mario.IntendedYaw) + 32768) % 65536) --wgui.text(x, y + 45, "Opposite (Intended): " ..  (Engine.getEffectiveAngle(Memory.Mario.IntendedYaw) + 32768) % 65536)
 	else
 		wgui.text(x, y, "Yaw (Facing): " .. Memory.Mario.FacingYaw)
 		wgui.text(x, y + 15, "Yaw (Intended): " .. Memory.Mario.IntendedYaw)
-		wgui.text(x + 132, y, "O: " ..  (Memory.Mario.FacingYaw + 32768) % 65536) --wgui.text(x + 45, y, "Opposite (Facing): " ..  (Memory.Mario.FacingYaw + 32768) % 65536)
-		wgui.text(x + 132, y + 15, "O: " ..  (Memory.Mario.IntendedYaw + 32768) % 65536)--wgui.text(x, y + 45, "Opposite (Intended): " ..  (Memory.Mario.IntendedYaw + 32768) % 65536)
+		wgui.text(x + 132, y, "O: " .. (Memory.Mario.FacingYaw + 32768) % 65536)  --wgui.text(x + 45, y, "Opposite (Facing): " ..  (Memory.Mario.FacingYaw + 32768) % 65536)
+		wgui.text(x + 132, y + 15, "O: " .. (Memory.Mario.IntendedYaw + 32768) % 65536) --wgui.text(x, y + 45, "Opposite (Intended): " ..  (Memory.Mario.IntendedYaw + 32768) % 65536)
 	end
 end
 
@@ -70,7 +70,7 @@ function Drawing.drawButton(x, y, width, length, text, pressed)
 	else
 		wgui.setcolor(Settings.Theme.Text)
 	end
-	wgui.setfont(10,"Arial","")
+	wgui.setfont(10, "Arial", "")
 	wgui.setbrush(Settings.Theme.Button.Outline)
 	wgui.setpen(Settings.Theme.Button.Outline)
 	wgui.rect(x + 1, y + 1, x + width + 1, y + length + 1)
@@ -79,13 +79,13 @@ function Drawing.drawButton(x, y, width, length, text, pressed)
 	wgui.rect(x, y, x + width, y + length)
 	if (pressed) then wgui.setbrush(Settings.Theme.Button.Pressed.Bottom) else wgui.setbrush(Settings.Theme.Button.Bottom) end
 	if (pressed) then wgui.setpen(Settings.Theme.Button.Pressed.Bottom) else wgui.setpen(Settings.Theme.Button.Bottom) end
-	wgui.rect(x+1, y+1 + length/2, x-1 + width, y-1 + length)
-	wgui.text(x + width/1.5 - 4.5 * string.len(text), y + length/2 - 7.5, text)
+	wgui.rect(x + 1, y + 1 + length / 2, x - 1 + width, y - 1 + length)
+	wgui.text(x + width / 1.5 - 4.5 * string.len(text), y + length / 2 - 7.5, text)
 end
 
 function Drawing.drawTextArea(x, y, width, length, text, enabled, editing)
 	wgui.setcolor(Settings.Theme.Text)
-	wgui.setfont(16,"Courier","b")
+	wgui.setfont(16, "Courier", "b")
 	if (editing) then
 		wgui.setbrush(Settings.Theme.InputField.Editing)
 		if (Settings.Theme.InputField.EditingText) then wgui.setcolor(Settings.Theme.InputField.EditingText) end
@@ -97,8 +97,8 @@ function Drawing.drawTextArea(x, y, width, length, text, enabled, editing)
 	wgui.setpen(Settings.Theme.InputField.OutsideOutline)
 	wgui.rect(x + 1, y + 1, x + width + 1, y + length + 1)
 	wgui.setpen(Settings.Theme.InputField.Outline)
-	wgui.line(x+2,y+2,x+2,y+length)
-	wgui.line(x+2,y+2,x+width,y+2)
+	wgui.line(x + 2, y + 2, x + 2, y + length)
+	wgui.line(x + 2, y + 2, x + width, y + 2)
 	if (editing) then
 		selectedChar = Settings.Layout.TextArea.selectedChar
 		Settings.Layout.TextArea.blinkTimer = (Settings.Layout.TextArea.blinkTimer + 1) % Settings.Layout.TextArea.blinkRate
@@ -106,32 +106,32 @@ function Drawing.drawTextArea(x, y, width, length, text, enabled, editing)
 			Settings.Layout.TextArea.showUnderscore = not Settings.Layout.TextArea.showUnderscore
 		end
 		if (Settings.Layout.TextArea.showUnderscore) then
-			text = string.sub(text,1, selectedChar - 1) .. "_" .. string.sub(text, selectedChar + 1, string.len(text))
+			text = string.sub(text, 1, selectedChar - 1) .. "_" .. string.sub(text, selectedChar + 1, string.len(text))
 		end
 	end
-	wgui.text(x + width/2 - 6.5 * string.len(text), y + length/2 - 8, text)
+	wgui.text(x + width / 2 - 6.5 * string.len(text), y + length / 2 - 8, text)
 end
 
 function Drawing.drawAnalogStick(x, y)
 	wgui.setpen(Settings.Theme.Joystick.Crosshair)
 	wgui.setbrush(Settings.Theme.Joystick.Background)
-	wgui.rect(x-64,y-64,x+64,y+64)
+	wgui.rect(x - 64, y - 64, x + 64, y + 64)
 	wgui.setbrush(Settings.Theme.Joystick.Circle)
-	wgui.ellipse(x-64,y-64,x+64,y+64)
+	wgui.ellipse(x - 64, y - 64, x + 64, y + 64)
 	if Settings.goalMag and Settings.goalMag < 127 then
 		wgui.setbrush(Settings.Theme.Joystick.MagBoundary)
 		local r = Settings.goalMag + 6
-		wgui.ellipse(x-r/2,y-r/2,x+r/2,y+r/2)
+		wgui.ellipse(x - r / 2, y - r / 2, x + r / 2, y + r / 2)
 	end
-	wgui.line(x-64, y, x+64, y)
-	wgui.line(x, y-64, x, y+64)
+	wgui.line(x - 64, y, x + 64, y)
+	wgui.line(x, y - 64, x, y + 64)
 	wgui.setpen(Settings.Theme.Joystick.Stick)
-	wgui.line(x, y, x + Joypad.input.X/2,y - Joypad.input.Y/2)
+	wgui.line(x, y, x + Joypad.input.X / 2, y - Joypad.input.Y / 2)
 	wgui.setpen(Settings.Theme.Joystick.Dot)
 	wgui.setbrush(Settings.Theme.Joystick.Dot)
-	wgui.ellipse(x-4 + Joypad.input.X/2,y-4 - Joypad.input.Y/2,x+4 + Joypad.input.X/2,y+4 - Joypad.input.Y/2)
+	wgui.ellipse(x - 4 + Joypad.input.X / 2, y - 4 - Joypad.input.Y / 2, x + 4 + Joypad.input.X / 2, y + 4 - Joypad.input.Y / 2)
 	wgui.setcolor(Settings.Theme.Text)
-	wgui.setfont(10,"Courier","")
+	wgui.setfont(10, "Courier", "")
 	local stick_y = Joypad.input.Y == 0 and "0" or -Joypad.input.Y
 	wgui.text(x + 90 - 2.5 * (string.len(stick_y)), y + 4, "y:" .. stick_y)
 	wgui.text(x + 90 - 2.5 * (string.len(Joypad.input.X)), y - 14, "x:" .. Joypad.input.X)
